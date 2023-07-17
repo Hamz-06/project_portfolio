@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'category',
-  title: 'Category',
+  name: 'project',
+  title: 'project',
   type: 'document',
   fields: [
     defineField({
@@ -28,6 +28,39 @@ export default defineType({
       of: [{ type: 'string' }],
     }),
     defineField({
+      name: 'title_color',
+      title: 'Title color',
+      type: 'array',
+      of: [{ type: 'string' }],
+    }),
+    defineField({
+      name: 'secondary_color',
+      title: 'secondary color',
+      type: 'string',
+    }),
+    defineField({
+      name: 'background_color',
+      title: 'Background color',
+      type: 'string',
+    }),
+    defineField({
+      name: 'year_created',
+      title: 'year created',
+      type: 'string',
+    }),
+    defineField({
+      name: 'project_order',
+      title: 'Project Order',
+      type: 'number',
+    }),
+
+    defineField({
+      name: 'features',
+      title: 'Features',
+      type: 'array',
+      of: [{ type: 'string' }],
+    }),
+    defineField({
       name: 'url_link',
       title: 'URL Link',
       type: 'url',
@@ -41,7 +74,6 @@ export default defineType({
         maxLength: 96,
       },
     }),
-
 
   ],
 })

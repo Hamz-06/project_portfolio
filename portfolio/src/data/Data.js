@@ -1,13 +1,13 @@
 const PAGES = [
     {
-        pagesHash: 'about-me',
-        pagesTitle: 'About Me',
+        pagesHash: 'home',
+        pagesTitle: 'Home',
+    }, {
+        pagesHash: 'contact',
+        pagesTitle: 'Contact',
     }, {
         pagesHash: 'my-projects',
-        pagesTitle: 'My Projects',
-    }, {
-        pagesHash: 'my-contact',
-        pagesTitle: 'My Contacts',
+        pagesTitle: 'Projects',
 
     }
 ]

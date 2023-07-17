@@ -113,9 +113,17 @@ function Header() {
     //     return () => removeEventListener(clickListner, clickedEvent)
     // }, [])
 
+    useEffect(() => {
+        var myHash = window.location.hash
+        myHash = myHash.split('#')[1]
+        const hashElement = document.getElementById(myHash)
+        console.log(hashElement)
+        hashElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+    }, [])
 
     return (
-        <header className='fixed h-52 w-10 bg-green-400 flex flex-col right-0 bottom-1/2 translate-y-1/4 mr-5'>
+        <header className='fixed h-52 w-10 flex flex-col right-0 bottom-1/2 translate-y-1/4 mr-5 z-50 rounded-full bg-pink-600'>
             {/* header side */}
 
 
@@ -123,10 +131,10 @@ function Header() {
                 PAGES.map((page, index) => {
                     const pageHash = page.pagesHash
                     return (
-                        <div key={index} id='main' className={`flex-1 bg-pink-600 flex items-center justify-center`}>
-                            <div id={`nav${index}`} className='w-3 h-3 bg-black rounded-full '>
+                        <div href={`#${pageHash}`} key={index} id='main' className={`flex-1  flex items-center justify-center `}>
+                            <a id={`nav${index}`} className='w-3 h-3 bg-black rounded-full '>
 
-                            </div>
+                            </a>
                         </div>
                     )
                 })

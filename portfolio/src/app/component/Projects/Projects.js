@@ -5,20 +5,25 @@ import { cn } from '@/util/util'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-
+import imageUrlBuilder from "@sanity/image-url";
 import myPicture from './face.png'
+import { client } from '@/util/sanity.client'
 
 
-function Project() {
+function Project({ data }) {
 
     const router = useRouter()
-    const techStack = ['react', 'figma', 'html']
-    const imagess = ['img1', 'img2', 'img3', 'img4']
+    const builder = imageUrlBuilder(client);
+
+
+    console.log(data[0]?.title_color ? data[0]?.title_color[0] : process.env.NEXT_PUBLIC_TEXT_PRIMARY)
+    console.log(data[0]?.title_color ? data[0]?.title_color[1] : process.env.NEXT_PUBLIC_TEXT_SECONDARY)
+    // const [title_color_primary, title_color_secondary] = data[0].title_color === null ? [process.env.NEXT_PUBLIC_TEXT_PRIMARY, process.env.NEXT_PUBLIC_TEXT_SECONDARY] : data[0].title_color
     return (
         <main>
-            <section className='w-screen min-h-screen h-auto bg-red-500'>
+            <section className={`w-screen min-h-screen h-auto p-5`} style={{ backgroundColor: `${data[0].background_color ?? process.env.NEXT_PUBLIC_BACKGROUND_PRIMARY}` }}>
                 {/* back  */}
-                <div className='m-auto inline-block relative items-center group/item p-5 '>
+                <div className='m-auto inline-block relative items-center group/item p-5'>
 
                     <div className='w-10 h-10 bg-slate-700 rounded-full p-2 '>
                         <ArrowLeftIcon className='group-hover/item:stroke-zinc-50 transition-all duration-500 ease-linear' onClick={() => router.push('/')} />
@@ -29,79 +34,98 @@ function Project() {
 
 
 
-                <div className='flex flex-col md:flex-row '>
+                <div className='flex flex-col md:flex-row h-auto min-h-[calc(100vh-220px)] '>
                     {/* project title  */}
-                    <div className='basis-1/2 relative'>
-                        <a className='text-4xl font-bold'>project </a>
-                        <br />
-                        <span>
-                            <a href='/' className='hover:text-gray-600'> Home </a> {'>'} {'s'}
+                    <div className='basis-1/2 relative flex flex-col items-center justify-center grow'>
+                        <span className='absolute top-0 left-0'>
+                            <a href='/' className='hover:text-gray-600 '> Home </a> {'>'} {data[0]?.title}
                         </span>
-                        {/* image that is removed on mobile */}
-                        <div className='mt-10 ml-auto mr-auto relative box-border w-[30%] p-[30%]  bg-red-300'>
+                        <a style={{
+                            background: `-webkit-linear-gradient(left,${data[0]?.title_color ? data[0].title_color[0] : process.env.NEXT_PUBLIC_TEXT_PRIMARY}, ${data[0]?.title_color ? data[0]?.title_color[1] : process.env.NEXT_PUBLIC_TEXT_SECONDARY})`,
+                            WebkitTextFillColor: 'transparent',
+                            WebkitBackgroundClip: 'text'
+                        }}
 
-                            <Image
-                                src={myPicture}
-                                fill='responsive'
+                            className='text-3xl sm:text-6xl font-bold block text-center bg-gradient-to-r
+                         bg-clip-text text-transparent'>
+                            {data[0]?.title}
+                        </a>
+                        <a href={data[0].url_link} className=''> Click me </a>
 
-                            />
-                        </div>
                     </div>
 
                     {/* tools and tech */}
-                    <div className='basis-1/2 h-auto'>
+                    <div className='basis-1/2 h-auto mt-15'>
 
-                        <div className='bg-pink-600 h-44 mt-10'>
-                            <a>Project Description</a>
+                        <div className=' h-44 mt-10 text-center sm:text-left'>
+                            <h1 className='text-lg font-bold underline underline-offset-2'
+                                style={{ textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }} >
+                                Project Description
+                            </h1>
+                            <p className='mt-2'>{data[0]?.description}</p>
 
                         </div>
-                        <div className=' bg-red-400 h-44'>
-                            Tools Used
-                        </div>
 
-                        <ul className='bg-gray-400 h-44 mb-10'>
-                            <a>Tech Stack</a>
-                            {techStack.map((tech, i) => {
+                        <ul className=' h-44 mb-10 text-center sm:text-left'>
+                            <a className='text-lg font-bold underline underline-offset-2 ' style={{ textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }}>Tools & Frameworks</a> <br />
+                            {data[0]?.tools_used.map((tech, i) => {
                                 return (
-                                    <li key={i} className='px-2 py-1 bg-teal-400/90 text-teal-300 inline-block bg-opacity-60  rounded-xl text-md'>
+                                    <li key={i}
+                                        className='inline-block m-2 bg-orange-500 p-1 px-2 rounded-full'
+                                        style={{ backgroundColor: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }}>
                                         {tech}
                                     </li>
                                 )
                             })
                             }
                         </ul>
-
                     </div>
+                </div>
+                {/* see below  */}
+                <div className='text-center'>
+                    Scroll down to see more...
+
                 </div>
             </section>
 
             {/* section two images */}
-            <section className='w-screen min-h-screen h-auto flex flex-col  md:flex-row'>
+            <section className='w-screen min-h-screen h-auto flex flex-col bg-slate-300 md:flex-row'
+                style={{ backgroundColor: `${data[0].background_color ?? process.env.NEXT_PUBLIC_BACKGROUND_PRIMARY}` }}>
                 {/* other images */}
-                <div className='w-full md:w-[60%] min-h-[100vh] grid grid-rows-4 sm:grid-rows-2 grid-cols-1 sm:grid-cols-2 '>
+                {/* <div className='w-full md:w-[60%] min-h-[100vh] grid grid-rows-4 sm:grid-rows-2 grid-cols-1 sm:grid-cols-2 '> */}
+                <div className='w-full md:w-[60%]   min-h-[100vh] px-2'>
 
-                    {imagess.map((img, i) => {
+                    {data[0].all_images?.map((img, i) => {
+                        const imageUrl = builder.image(img.asset).url()
                         return (
-                            <div className='w-48 h-48 sm:w-52 sm:h-52  lg:w-60 relative lg:h-60 xl:w-72 xl:h-72 m-auto p-2 bg-green-300 '>
 
+                            // <div className='w-48 h-48 sm:w-52 sm:h-52  lg:w-64 relative lg:h-64 xl:w-72 xl:h-72 m-auto  bg-green-300 '>
+                            <div className='bg-green-300 shadow-2xl relative aspect-square w-[85%] sm:w-[47%] m-2 inline-block'>
 
-                                <Image
-                                    src={myPicture}
-                                    fill='responsive'
+                                < Image
+                                    src={imageUrl}
+                                    fill='true'
 
                                 />
-
                             </div>
                         )
                     })}
 
                 </div>
                 {/* extra description */}
-                <div className='w-full md:w-[40%]  md:h-[inherit]  bg-red-500'>
-                    <a>Key features</a>
+                <div className='w-full md:w-[40%] md:h-[inherit]  p-4'>
+                    <span className='text-lg font-bold mx-auto mb-2 block w-32 '>Key features</span>
+
+                    {data[0].features?.map((feature, i) => {
+                        return (
+                            <li key={i} className='mt-4'>
+                                {feature}
+                            </li>
+                        )
+                    })}
                 </div>
             </section>
-        </main>
+        </main >
     )
 }
 
