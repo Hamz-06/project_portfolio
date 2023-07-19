@@ -15,7 +15,12 @@
     animation: move 6s ease infinite;
     animation-duration: 8s; 
 }
-
+::selection {
+    background: #ffb7b7; /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: #ffb7b7; /* Gecko Browsers */
+  }
 /* @keyframes move{
     50% { transform: translateY(-15px); }
     100% { transform: translateX(0px); }
