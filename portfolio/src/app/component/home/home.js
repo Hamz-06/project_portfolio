@@ -223,7 +223,7 @@ function Home({ projects }) {
                 <div className='w-full h-full bg-[#CFF469] text-[#503658]
            z-40 absolute flex flex-col items-center justify-center min-h-[600px]'>
                     <a className='text-4xl font-bold mb-5 flex-none'>My Projects</a>
-                    <div className=' w-[95%] md:w-[70%] h-[600px] flex-none overflow-scroll'>
+                    <div className=' w-[95%] md:w-[70%] h-[60%] flex-none overflow-scroll'>
 
 
                         {
