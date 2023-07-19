@@ -117,13 +117,23 @@ function Header() {
         var myHash = window.location.hash
         myHash = myHash.split('#')[1]
         const hashElement = document.getElementById(myHash)
-        console.log(hashElement)
-        hashElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
+        hashElement?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, [])
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            const entry = entries
+            console.log(entry[0].intersectionRect)
+        })
+        const contact = document.getElementById('contact')
+        observer.observe(contact)
     }, [])
 
     return (
-        <header className='fixed h-52 w-10 flex flex-col right-0 bottom-1/2 translate-y-1/4 mr-5 z-50 rounded-full bg-pink-600'>
+        <header className='fixed w-52 h-10 sm:h-52 sm:w-10 flex flex-row sm:flex-col sm:right-0 
+        sm:bottom-1/2 sm:translate-y-1/4 sm:mr-10 z-50 rounded-full bg-white right-1/2 translate-x-1/2
+        mt-5'>
             {/* header side */}
 
 
@@ -131,11 +141,11 @@ function Header() {
                 PAGES.map((page, index) => {
                     const pageHash = page.pagesHash
                     return (
-                        <div href={`#${pageHash}`} key={index} id='main' className={`flex-1  flex items-center justify-center `}>
-                            <a id={`nav${index}`} className='w-3 h-3 bg-black rounded-full '>
+                        <a href={`#${pageHash}`} key={index} className={`flex-1 flex items-center justify-center `}>
+                            <a className='w-3 h-3 bg-black rounded-full '>
 
                             </a>
-                        </div>
+                        </a>
                     )
                 })
             }

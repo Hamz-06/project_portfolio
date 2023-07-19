@@ -10,7 +10,7 @@ import { groq } from "next-sanity";
 
 const getProjects = async () => {
 
-    const query = groq`*[_type == "project"]{
+    const query = groq`*[_type == "project"]|order(project_order desc){
         description,
         slug,
         title,
@@ -23,6 +23,7 @@ const getProjects = async () => {
 
 export default async function HomePage(prop) {
     const projects = await getProjects()
+    // console.log(projects)
 
 
 

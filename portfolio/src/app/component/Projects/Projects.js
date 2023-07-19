@@ -26,52 +26,67 @@ function Project({ data }) {
                 <div className='m-auto inline-block relative items-center group/item p-5'>
 
                     <div className='w-10 h-10 bg-slate-700 rounded-full p-2 '>
-                        <ArrowLeftIcon className='group-hover/item:stroke-zinc-50 transition-all duration-500 ease-linear' onClick={() => router.push('/')} />
+                        <ArrowLeftIcon className='group-hover/item:stroke-zinc-50 transition-all duration-500 ease-linear' onClick={() => router.push('/#my-projects')} />
                     </div>
+
 
                     <a className='w-20 absolute  translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 invisible opacity-0 group-hover/item:visible group-hover/item:opacity-100 transition-all duration-500 ease-linear hover:text-gray-600'>Go Back</a>
                 </div>
 
 
 
-                <div className='flex flex-col md:flex-row h-auto min-h-[calc(100vh-220px)] '>
+                <div className='flex flex-col md:flex-row h-auto min-h-[calc(100vh-220px)'>
                     {/* project title  */}
                     <div className='basis-1/2 relative flex flex-col items-center justify-center grow'>
-                        <span className='absolute top-0 left-0'>
-                            <a href='/' className='hover:text-gray-600 '> Home </a> {'>'} {data[0]?.title}
-                        </span>
+                        {/* <span className='absolute top-0 left-0 line-clamp-1'>
+                            <a href='/' className='hover:text-gray-600'> Home </a> {'>'} {data[0]?.title}
+                        </span> */}
                         <a style={{
                             background: `-webkit-linear-gradient(left,${data[0]?.title_color ? data[0].title_color[0] : process.env.NEXT_PUBLIC_TEXT_PRIMARY}, ${data[0]?.title_color ? data[0]?.title_color[1] : process.env.NEXT_PUBLIC_TEXT_SECONDARY})`,
                             WebkitTextFillColor: 'transparent',
                             WebkitBackgroundClip: 'text'
                         }}
-
-                            className='text-3xl sm:text-6xl font-bold block text-center bg-gradient-to-r
-                         bg-clip-text text-transparent'>
+                            className='text-3xl sm:text-3xl md:text-5xl font-bold block text-center bg-gradient-to-r
+                            bg-clip-text text-transparent px-2'>
                             {data[0]?.title}
                         </a>
-                        <a href={data[0].url_link} className=''> Click me </a>
+                        <a href={data[0].url_link}
+                            target='_blank'
+                            className='mt-2 rounded-full p-2 hover:scale-110'
+                            style={{ backgroundColor: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }}>
+                            Click me
+                        </a>
 
                     </div>
 
                     {/* tools and tech */}
                     <div className='basis-1/2 h-auto mt-15'>
 
-                        <div className=' h-44 mt-10 text-center sm:text-left'>
+                        <div className=' h-44 mt-6 text-center sm:text-left flex flex-col'>
                             <h1 className='text-lg font-bold underline underline-offset-2'
-                                style={{ textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }} >
+                                style={{
+                                    textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}`,
+                                    textDecorationLine: 'underline',
+                                    textUnderlineOffset: '0.2em'
+                                }} >
                                 Project Description
                             </h1>
-                            <p className='mt-2'>{data[0]?.description}</p>
+                            <p className='mt-2 overflow-scroll'>{data[0]?.description}</p>
 
                         </div>
 
-                        <ul className=' h-44 mb-10 text-center sm:text-left'>
-                            <a className='text-lg font-bold underline underline-offset-2 ' style={{ textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }}>Tools & Frameworks</a> <br />
-                            {data[0]?.tools_used.map((tech, i) => {
+                        <ul className=' h-44 mb-6 mt-3 text-center sm:text-left overflow-scroll'>
+                            <a className='text-lg font-bold underline underline-offset-2 ' style={{
+                                textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}`,
+                                textDecorationLine: 'underline',
+                                textUnderlineOffset: '0.2em'
+                            }}>
+                                Tools & Frameworks
+                            </a> <br />
+                            {data[0]?.tools_used?.map((tech, i) => {
                                 return (
                                     <li key={i}
-                                        className='inline-block m-2 bg-orange-500 p-1 px-2 rounded-full'
+                                        className='inline-block m-2 bg-orange-500 p-1 px-2 rounded-full '
                                         style={{ backgroundColor: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }}>
                                         {tech}
                                     </li>
@@ -100,11 +115,12 @@ function Project({ data }) {
                         return (
 
                             // <div className='w-48 h-48 sm:w-52 sm:h-52  lg:w-64 relative lg:h-64 xl:w-72 xl:h-72 m-auto  bg-green-300 '>
-                            <div className='bg-green-300 shadow-2xl relative aspect-square w-[85%] sm:w-[47%] m-2 inline-block'>
+                            <div className='bg-gray-400 shadow-2xl relative aspect-square w-[85%] sm:w-[47%] m-2 inline-block'>
 
                                 < Image
                                     src={imageUrl}
                                     fill='true'
+                                    className='object-scale-down'
 
                                 />
                             </div>
@@ -114,7 +130,17 @@ function Project({ data }) {
                 </div>
                 {/* extra description */}
                 <div className='w-full md:w-[40%] md:h-[inherit]  p-4'>
-                    <span className='text-lg font-bold mx-auto mb-2 block w-32 '>Key features</span>
+                    <span
+                        className='text-lg font-bold mx-auto mb-2 block w-full text-center sm:text-left '
+                        style={{
+                            textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}`,
+                            textDecorationLine: 'underline',
+                            textUnderlineOffset: '0.2em'
+                        }}
+                    >
+                        Acquired skills and knowledge
+
+                    </span>
 
                     {data[0].features?.map((feature, i) => {
                         return (

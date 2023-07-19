@@ -52,6 +52,7 @@ export default defineType({
       name: 'project_order',
       title: 'Project Order',
       type: 'number',
+      validation: Rule => Rule.required()
     }),
 
     defineField({

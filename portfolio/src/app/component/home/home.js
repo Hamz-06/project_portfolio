@@ -12,7 +12,7 @@ import ProjectList from '../Element/ProjectList'
 
 function Home({ projects }) {
     const currentPage = useSelector((state) => state.currentPage.currentPage)
-
+    var projIndex = projects.length + 1
     // const renderPage = () => {
     //   switch (currentPage.pagesHash) {
     //     case 'about-me':
@@ -90,6 +90,11 @@ function Home({ projects }) {
         return cloud
     }
 
+    const copyText = () => {
+        var copyText = document.getElementById("email");
+        const emailString = copyText.innerText
+        navigator.clipboard.writeText(emailString);
+    }
 
     return (
 
@@ -102,10 +107,10 @@ function Home({ projects }) {
                 {/* sun */}
                 <div className='w-52 h-52 md:w-72 md:h-72 lg:h-96 lg:w-96 bg-yellow-300 pointer-events-none rounded-full top-0 right-1/2 translate-y-1/2 translate-x-1/2 absolute z-10'>
                 </div>
-                <a className='  bottom-0 absolute right-1/2 translate-x-1/2 mb-2 text-center' href="">React Web Dev - My Portfolio</a>
+                <a className='bottom-0 absolute right-1/2 translate-x-1/2 mb-2 text-center' href="">React Web Dev - My Portfolio</a>
                 {/* name */}
                 <div className='flex flex-col md:flex-row justify-center h-full items-center mx-5 md:mx-40 flex-none z-10 relative'>
-                    <a className='text-4xl md:text-6xl font-extrabold text-black text-center z-20 mr-5'>Mohammad <br />Hamzah Iqbal</a>
+                    <a className='text-4xl md:text-6xl font-extrabold text-black text-center z-20 mr-0 mb-5 sm:mb-0 sm:mr-5'>Mohammad <br />Hamzah Iqbal</a>
                     <div className='w-[250px] h-[250px] relative flex-none'>
                         <Image
                             src={myPicture}
@@ -143,23 +148,24 @@ function Home({ projects }) {
 
                 </div>
                 {/* About me  */}
-                <div className='basis-1/2 flex flex-col items-center mt-10 z-40'>
-                    <a className='text-2xl'>About me</a>
+                <div className='basis-1/2 overflow-scroll flex flex-col items-center mt-10 z-40'>
+                    <a className='text-4xl mt-10 sm:mt-0'>About Me</a>
                     <div>
-                        <p className='m-5 sm:m-10 font-semibold '>
-                            I am a web developer with a passion for creating beautiful and functional websites.
+                        <p className='m-5 sm:m-10 font-semibold text-center text ' >
+                            I'm Hamzah, a recent graduate from City University. My area of expertise lies in creating web applications,I also have a strong understanding of object-oriented programming concepts. I thrive on learning new cutting-edge technologies like Next.js to bring my web application visions to life. The website you're currently exploring is a testament to my capabilities, as it was entirely developed by me using Next.js and React. If you couldn't tell already this website was Inspired by nature and fuelled by my adventurous spirit, I infused elements of both into its design.
                         </p>
                     </div>
 
                 </div>
                 {/* contact me */}
                 <div className='basis-1/2 flex flex-col items-center mt-10 z-40'>
-                    <a className='text-2xl'>Contact me</a>
+                    <a className='text-4xl'>Contact me</a>
                     <div className='grid w-full h-full grid-rows-3 sm:grid-rows-6 grid-cols-2 sm:grid-cols-1'>
 
                         <div className='m-auto sm:m-0 sm:my-auto sm:ml-5 text-center sm:text-left p-3'>
                             <div className='flex items-center'>
-                                <a className='text-3xl'>
+                                <a target='_blank' href='https://www.linkedin.com/in/hamzah-iqbal-/' className='text-3xl  bg-gradient-to-r
+                         bg-clip-text text-black hover:text-transparent hover:from-blue-500 hover:to-blue-950 transition-all'>
                                     My Linkdeln
                                 </a>
                                 <a className='w-10 h-10  relative bg-blue-500 rounded-full p-2 ml-2 hidden sm:block'>
@@ -168,9 +174,9 @@ function Home({ projects }) {
                                     </svg>
                                 </a>
                             </div>
-                            <a>Click me</a>
+
                         </div>
-                        <div className='m-auto sm:m-0 sm:my-auto sm:ml-5 text-center sm:text-left p-3'>
+                        <div className='m-auto sm:m-0 sm:my-auto sm:ml-5 text-center sm:text-left p-3  group/email cursor-pointer' onClick={() => copyText()}>
                             <div className='flex items-center'>
                                 <a className='text-3xl'>
                                     Email
@@ -182,11 +188,13 @@ function Home({ projects }) {
 
                                 </a>
                             </div>
-                            <a>Click me</a>
+                            <a id='email' className='group-active/email:bg-red-400 transition-all [line-break:anywhere]'>Hamzah1010@hotmail.co.uk</a>
+
                         </div>
                         <div className='m-auto sm:m-0 sm:my-auto sm:ml-5 text-center sm:text-left p-3'>
                             <div className='flex items-center'>
-                                <a className='text-3xl'>
+                                <a target='_blank' href='https://www.linkedin.com/in/hamzah-iqbal-/' className='text-3xl bg-gradient-to-r
+                         bg-clip-text text-black hover:text-transparent hover:from-purple-500 hover:to-purple-950 transition-all'>
                                     Github
                                 </a>
                                 <a className='w-10 h-10  relative bg-purple-500 rounded-full p-2 ml-2 hidden sm:block'>
@@ -195,7 +203,8 @@ function Home({ projects }) {
                                     </svg>
                                 </a>
                             </div>
-                            <a>Click me</a>
+
+
                         </div>
 
 
@@ -212,14 +221,15 @@ function Home({ projects }) {
             <section id='my-projects' section className='snap-start h-screen  w-screen relative' >
                 <div className='w-full h-full bg-[#CFF469] text-[#503658]
            z-40 absolute flex flex-col items-center justify-center min-h-[600px]'>
-                    <div className=' w-[95%] md:w-[70%] h-[600px] flex-none  '>
+                    <a className='text-4xl font-bold mb-5 flex-none'>My Projects</a>
+                    <div className=' w-[95%] md:w-[70%] h-[600px] flex-none overflow-scroll'>
 
-                        <a className='text-4xl font-bold mb-5'>My Projects</a>
 
                         {
-                            projects.map((project, index) => {
+                            projects.map((project) => {
+                                projIndex = projIndex - 1
                                 return (
-                                    <ProjectList data={project} index={index} />
+                                    <ProjectList data={project} index={projIndex} />
                                 )
                             })
                         }
