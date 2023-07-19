@@ -1,3 +1,4 @@
+
 import { client } from "@/util/sanity.client";
 import Home from "../component/home/home";
 import { groq } from "next-sanity";

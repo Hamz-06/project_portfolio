@@ -14,8 +14,8 @@ function Header() {
     const [isPause, setPause] = useState(true)
     // const [currentPage, setPage] = useState()
     var currentPagePointerRef = useRef()
-    const dispatch = useDispatch()
-    const currentPage = useSelector((state) => state.currentPage.currentPage)
+
+
 
     // useEffect(() => {
 
@@ -141,11 +141,11 @@ function Header() {
                 PAGES.map((page, index) => {
                     const pageHash = page.pagesHash
                     return (
-                        <a href={`#${pageHash}`} key={index} className={`flex-1 flex items-center justify-center `}>
+                        <div href={`#${pageHash}`} key={index} className={`flex-1 flex items-center justify-center `}>
                             <a className='w-3 h-3 bg-black rounded-full '>
 
                             </a>
-                        </a>
+                        </div>
                     )
                 })
             }

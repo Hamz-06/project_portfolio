@@ -22,6 +22,7 @@ function ProjectList({ data, index }) {
             <div className=' w-[calc(100%-64px)] md:w-[calc(100%-96px)] flex items-center'>
                 <div className='flex-none text-base w-24 h-24 md:w-32 md:h-32 bg-purple-500 ml-1 md:ml-3 relative'>
                     {imageUrl ? < Image
+                        alt='main image'
                         src={imageUrl}
                         fill='true'
                     /> : ''}

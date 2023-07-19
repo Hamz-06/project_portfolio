@@ -3,7 +3,7 @@ import React from 'react'
 
 import myPicture from './face.png'
 
-import { useSelector } from 'react-redux'
+
 import { useEffect } from 'react'
 
 import Cloud from '../Element/cloud'
@@ -11,7 +11,7 @@ import Image from 'next/image'
 import ProjectList from '../Element/ProjectList'
 
 function Home({ projects }) {
-    const currentPage = useSelector((state) => state.currentPage.currentPage)
+
     var projIndex = projects.length + 1
     // const renderPage = () => {
     //   switch (currentPage.pagesHash) {
@@ -107,12 +107,13 @@ function Home({ projects }) {
                 {/* sun */}
                 <div className='w-52 h-52 md:w-72 md:h-72 lg:h-96 lg:w-96 bg-yellow-300 pointer-events-none rounded-full top-0 right-1/2 translate-y-1/2 translate-x-1/2 absolute z-10'>
                 </div>
-                <a className='bottom-0 absolute right-1/2 translate-x-1/2 mb-2 text-center' href="">React Web Dev - My Portfolio</a>
+                <a className='bottom-0 absolute right-1/2 translate-x-1/2 mb-2 text-center' >React Web Dev - My Portfolio</a>
                 {/* name */}
                 <div className='flex flex-col md:flex-row justify-center h-full items-center mx-5 md:mx-40 flex-none z-10 relative'>
                     <a className='text-4xl md:text-6xl font-extrabold text-black text-center z-20 mr-0 mb-5 sm:mb-0 sm:mr-5'>Mohammad <br />Hamzah Iqbal</a>
                     <div className='w-[250px] h-[250px] relative flex-none'>
                         <Image
+                            alt='bs'
                             src={myPicture}
                             fill='responsive'
                         />
@@ -129,7 +130,7 @@ function Home({ projects }) {
                 <div className='w-[100%] h-[30%] sm:h-[50%] md:h-[70%] lg:h-[100%] bottom-0 absolute flex items-center justify-center overflow-hidden z-10 '>
 
                     <svg viewBox="0 0 1280 832" className='w-full' fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_115_23)">
+                        <g clipPath="url(#clip0_115_23)">
                             <path d="M8.39374 442.076L-39 479.173V657H1404L1083.95 587.518L869.845 532.756L678.597 442.076L637.337 469.162L551.47 374.36L461.143 353.162L407.616 277.203L370.816 301.345L282.162 193L187.375 301.345V277.203L121.581 374.36V353.162L58.5753 414.401V383.782L8.39374 442.076Z" fill="#FE7777" />
                             <path d="M27.3313 518.774H-94V698H1378V403H1339.08L1181.7 461.443L1070.67 528.236L980.812 518.774L802.249 559.962H704.383L596.215 607.83H496.631L406.778 588.906L274 607.83L110.317 559.962L27.3313 518.774Z" fill="#AA5574" />
                             <path d="M83.9409 624.935L-112 597.801V880H1429V517L1368.11 578.505L1178.8 624.935L984.666 647.246L668.146 624.935L454.721 668.953H250.943L83.9409 624.935Z" fill="#16566F" />
@@ -182,8 +183,8 @@ function Home({ projects }) {
                                     Email
                                 </a>
                                 <a className='w-10 h-10  relative bg-red-500 rounded-full p-2 ml-2 hidden sm:block'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z" />
                                     </svg>
 
                                 </a>
@@ -218,7 +219,7 @@ function Home({ projects }) {
             </section >
 
             {/* section three  */}
-            <section id='my-projects' section className='snap-start h-screen  w-screen relative' >
+            <section id='my-projects' className='snap-start h-screen  w-screen relative' >
                 <div className='w-full h-full bg-[#CFF469] text-[#503658]
            z-40 absolute flex flex-col items-center justify-center min-h-[600px]'>
                     <a className='text-4xl font-bold mb-5 flex-none'>My Projects</a>
@@ -226,10 +227,12 @@ function Home({ projects }) {
 
 
                         {
-                            projects.map((project) => {
+                            projects.map((project, index) => {
                                 projIndex = projIndex - 1
                                 return (
-                                    <ProjectList data={project} index={projIndex} />
+                                    <div key={index}>
+                                        <ProjectList data={project} index={projIndex} />
+                                    </div>
                                 )
                             })
                         }
