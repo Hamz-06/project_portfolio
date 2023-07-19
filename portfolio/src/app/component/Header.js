@@ -121,14 +121,14 @@ function Header() {
         hashElement?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, [])
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(entries => {
-            const entry = entries
-            console.log(entry[0].intersectionRect)
-        })
-        const contact = document.getElementById('contact')
-        observer.observe(contact)
-    }, [])
+    // useEffect(() => {
+    //     const observer = new IntersectionObserver(entries => {
+    //         const entry = entries
+    //         console.log(entry[0].intersectionRect)
+    //     })
+    //     const contact = document.getElementById('contact')
+    //     observer.observe(contact)
+    // }, [])
 
     return (
         <header className='fixed w-52 h-10 sm:h-52 sm:w-10 flex flex-row sm:flex-col sm:right-0 
@@ -141,11 +141,11 @@ function Header() {
                 PAGES.map((page, index) => {
                     const pageHash = page.pagesHash
                     return (
-                        <div href={`#${pageHash}`} key={index} className={`flex-1 flex items-center justify-center `}>
-                            <a className='w-3 h-3 bg-black rounded-full '>
+                        <a href={`#${pageHash}`} key={index} className={`flex-1 flex items-center justify-center `}>
+                            <div className='w-3 h-3 bg-black rounded-full '>
 
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     )
                 })
             }

@@ -103,7 +103,7 @@ function Home({ projects }) {
             <section id='home' className='snap-start  h-screen  bg-blue-400 inline-block  w-screen '>
                 {/* cloud  */}
 
-                {/* {generateCloud()} */}
+                {generateCloud()}
                 {/* sun */}
                 <div className='w-52 h-52 md:w-72 md:h-72 lg:h-96 lg:w-96 bg-yellow-300 pointer-events-none rounded-full top-0 right-1/2 translate-y-1/2 translate-x-1/2 absolute z-10'>
                 </div>
