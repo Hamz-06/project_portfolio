@@ -12,7 +12,8 @@ function ProjectList({ data, index }) {
 
 
     return (
-        <div onClick={() => router.push(`project/${data?.slug.current}`)} className='h-auto w-full  mt-2 flex'>
+        <div onClick={() => router.push(`project/${data?.slug.current}`)}
+            className='h-auto w-full group/itemlist mt-2 flex cursor-pointer'>
             {/* index hash  */}
             <div className='w-16 md:w-24 h-full relative flex-none flex items-center justify-center my-auto sm:justify-end'>
                 <h1 className='text-4xl font-bold '>#{index}</h1>
@@ -25,7 +26,7 @@ function ProjectList({ data, index }) {
                         fill='true'
                     /> : ''}
                 </div>
-                <div className='p-2'>
+                <div className='p-2 group-hover/itemlist:bg-lime-200'>
                     <a className='line-clamp-2 text-lg font-bold'>{data?.title}</a>
                     <a className='line-clamp-3 text-sm'>{data.description}</a>
                     <a className='text-sm mt-1'>{data?.year_created}</a>

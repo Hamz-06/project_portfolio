@@ -35,7 +35,7 @@ function Project({ data }) {
 
 
 
-                <div className='flex flex-col md:flex-row h-auto min-h-[calc(100vh-220px)'>
+                <div className='flex flex-col md:flex-row h-auto min-h-[calc(100vh-150px)]'>
                     {/* project title  */}
                     <div className='basis-1/2 relative flex flex-col items-center justify-center grow'>
                         {/* <span className='absolute top-0 left-0 line-clamp-1'>
@@ -50,17 +50,17 @@ function Project({ data }) {
                             bg-clip-text text-transparent px-2'>
                             {data[0]?.title}
                         </a>
-                        <a href={data[0].url_link}
+                        {data[0].url_link ? <a href={data[0].url_link}
                             target='_blank'
                             className='mt-2 rounded-full p-2 hover:scale-110'
                             style={{ backgroundColor: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}` }}>
                             Click me
-                        </a>
+                        </a> : ''}
 
                     </div>
 
                     {/* tools and tech */}
-                    <div className='basis-1/2 h-auto mt-15'>
+                    <div className='basis-1/2 flex-grow h-auto mt-15'>
 
                         <div className=' h-44 mt-6 text-center sm:text-left flex flex-col'>
                             <h1 className='text-lg font-bold underline underline-offset-2'
@@ -75,12 +75,13 @@ function Project({ data }) {
 
                         </div>
 
-                        <ul className=' h-44 mb-6 mt-3 text-center sm:text-left overflow-scroll'>
-                            <a className='text-lg font-bold underline underline-offset-2 ' style={{
-                                textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}`,
-                                textDecorationLine: 'underline',
-                                textUnderlineOffset: '0.2em'
-                            }}>
+                        <ul className=' h-44  mt-3 text-center sm:text-left overflow-scroll'>
+                            <a className='text-lg font-bold underline underline-offset-2 '
+                                style={{
+                                    textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}`,
+                                    textDecorationLine: 'underline',
+                                    textUnderlineOffset: '0.2em'
+                                }}>
                                 Tools & Frameworks
                             </a> <br />
                             {data[0]?.tools_used?.map((tech, i) => {
@@ -94,6 +95,11 @@ function Project({ data }) {
                             })
                             }
                         </ul>
+                        <a
+                            className=' absolute top-0 right-0 mt-2 mr-2'
+
+                        >{data[0]?.year_created}
+                        </a>
                     </div>
                 </div>
                 {/* see below  */}
