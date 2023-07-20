@@ -124,6 +124,31 @@ function Home({ projects }) {
 
             </section>
 
+
+
+            {/* section three  */}
+            <section id='my-projects' className='snap-start h-screen  w-screen relative' >
+                <div className='w-full h-full bg-[#CFF469] text-[#503658]
+           z-40 absolute flex flex-col items-center justify-center min-h-[600px]'>
+                    <a className='text-4xl font-bold mb-5 flex-none'>My Projects</a>
+                    <div className=' w-[95%] md:w-[70%] h-[60%] flex-none overflow-scroll'>
+
+
+                        {
+                            projects.map((project, index) => {
+                                projIndex = projIndex - 1
+                                return (
+                                    <div key={index}>
+                                        <ProjectList data={project} index={projIndex} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                </div>
+            </section >
+
             {/* section two  */}
             <section id='contact' className='snap-start h-screen font-bold  relative flex flex-col sm:flex-row bg-red-300 w-screen '>
 
@@ -166,7 +191,7 @@ function Home({ projects }) {
                         <div className='m-auto sm:m-0 sm:my-auto sm:ml-5 text-center sm:text-left p-3'>
                             <div className='flex items-center'>
                                 <a target='_blank' href='https://www.linkedin.com/in/hamzah-iqbal-/' className='text-3xl  bg-gradient-to-r
-                         bg-clip-text text-black hover:text-transparent hover:from-blue-500 hover:to-blue-950 transition-all'>
+         bg-clip-text text-black hover:text-transparent hover:from-blue-500 hover:to-blue-950 transition-all'>
                                     My Linkdeln
                                 </a>
                                 <a className='w-10 h-10  relative bg-blue-500 rounded-full p-2 ml-2 hidden sm:block'>
@@ -195,7 +220,7 @@ function Home({ projects }) {
                         <div className='m-auto sm:m-0 sm:my-auto sm:ml-5 text-center sm:text-left p-3'>
                             <div className='flex items-center'>
                                 <a target='_blank' href='https://www.linkedin.com/in/hamzah-iqbal-/' className='text-3xl bg-gradient-to-r
-                         bg-clip-text text-black hover:text-transparent hover:from-purple-500 hover:to-purple-950 transition-all'>
+         bg-clip-text text-black hover:text-transparent hover:from-purple-500 hover:to-purple-950 transition-all'>
                                     Github
                                 </a>
                                 <a className='w-10 h-10  relative bg-purple-500 rounded-full p-2 ml-2 hidden sm:block'>
@@ -216,29 +241,6 @@ function Home({ projects }) {
                     <a className='absolute bottom-0 left-1/2 z-40 -translate-x-1/2 mb-5 text-center'>Scroll down to see my projects</a>
                 </div>
 
-            </section >
-
-            {/* section three  */}
-            <section id='my-projects' className='snap-start h-screen  w-screen relative' >
-                <div className='w-full h-full bg-[#CFF469] text-[#503658]
-           z-40 absolute flex flex-col items-center justify-center min-h-[600px]'>
-                    <a className='text-4xl font-bold mb-5 flex-none'>My Projects</a>
-                    <div className=' w-[95%] md:w-[70%] h-[60%] flex-none overflow-scroll'>
-
-
-                        {
-                            projects.map((project, index) => {
-                                projIndex = projIndex - 1
-                                return (
-                                    <div key={index}>
-                                        <ProjectList data={project} index={projIndex} />
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-
-                </div>
             </section >
 
         </main >
