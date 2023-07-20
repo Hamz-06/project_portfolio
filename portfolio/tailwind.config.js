@@ -23,7 +23,7 @@ module.exports = {
       },
 
       screens: {
-        'tall': { 'raw': '(max-height: 500px)' },
+        'tall': { 'raw': '(max-height: 650px)' },
         // => @media (min-height: 800px) { ... }
       }
 
