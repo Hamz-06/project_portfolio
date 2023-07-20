@@ -98,9 +98,9 @@ function Home({ projects }) {
 
     return (
 
-        <main id='main_page' className='h-screen w-screen snap-mandatory overflow-scroll snap-y '>
+        <main id='main_page' className='h-screen w-screen tall:snap-none tall:overflow-visible snap-mandatory overflow-scroll snap-y '>
 
-            <section id='home' className='snap-start  h-screen  bg-blue-400 inline-block  w-screen '>
+            <section id='home' className='snap-start min h-screen min-h-[600px] bg-blue-400 inline-block  w-screen '>
                 {/* cloud  */}
 
                 {generateCloud()}
@@ -127,7 +127,7 @@ function Home({ projects }) {
 
 
             {/* section three  */}
-            <section id='my-projects' className='snap-start h-screen  w-screen relative' >
+            <section id='my-projects' className='snap-start h-screen min-h-[600px] w-screen relative' >
                 <div className='w-full h-full bg-[#CFF469] text-[#503658]
            z-40 absolute flex flex-col items-center justify-center min-h-[600px]'>
                     <a className='text-4xl font-bold mb-5 flex-none'>My Projects</a>
@@ -150,7 +150,7 @@ function Home({ projects }) {
             </section >
 
             {/* section two  */}
-            <section id='contact' className='snap-start h-screen font-bold  relative flex flex-col sm:flex-row bg-red-300 w-screen '>
+            <section id='contact' className='snap-start h-screen font-bold min-h-[600px] relative flex flex-col sm:flex-row bg-red-300 w-screen '>
 
                 <div className='w-[100%] h-[30%] sm:h-[50%] md:h-[70%] lg:h-[100%] bottom-0 absolute flex items-center justify-center overflow-hidden z-10 '>
 

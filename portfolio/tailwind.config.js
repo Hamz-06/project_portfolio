@@ -20,7 +20,14 @@ module.exports = {
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
+      },
+
+      screens: {
+        'tall': { 'raw': '(max-height: 500px)' },
+        // => @media (min-height: 800px) { ... }
       }
+
+
     },
   },
   plugins: [],

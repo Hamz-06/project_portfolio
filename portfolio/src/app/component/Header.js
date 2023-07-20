@@ -133,10 +133,9 @@ function Header() {
     return (
         <header className='fixed w-52 h-10 sm:h-52 sm:w-10 flex flex-row sm:flex-col sm:right-0 
         sm:bottom-1/2 sm:translate-y-1/4 sm:mr-10 z-50 rounded-full bg-white right-1/2 translate-x-1/2
-        mt-5'>
+        mt-5 '>
+
             {/* header side */}
-
-
             {
                 PAGES.map((page, index) => {
                     const pageHash = page.pagesHash
