@@ -17,9 +17,10 @@ function Cloud({ leftSide }) {
 
     useEffect(() => {
         if (window === undefined) return
-
+        // maybe fix this later
         var browserYaxis = window?.innerHeight - 100;
         var browserCenter = window?.innerHeight / 2 + 100;
+
 
         yAxis = Math.floor(Math.random() * (browserYaxis - browserCenter + 1)) + browserCenter;
         xAxis = Math.floor(Math.random() * window?.innerWidth / 2 * leftSide);
