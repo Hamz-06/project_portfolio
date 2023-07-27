@@ -98,7 +98,7 @@ function Home({ projects }) {
 
     return (
 
-        <main id='main_page' className='h-screen w-screen tall:snap-none tall:overflow-visible snap-mandatory overflow-scroll snap-y '>
+        <main id='main_page' className='h-screen w-screen tall:snap-none tall:overflow-visible snap-mandatory overflow-auto overflow-x-hidden snap-y '>
 
             <section id='home' className='snap-start min h-screen min-h-[600px] bg-blue-400 inline-block  w-screen '>
                 {/* cloud  */}
@@ -131,7 +131,7 @@ function Home({ projects }) {
                 <div className='w-full h-full bg-[#CFF469] text-[#503658]
            z-40 absolute flex flex-col items-center justify-center min-h-[600px]'>
                     <a className='text-4xl font-bold mb-5 flex-none'>My Projects</a>
-                    <div className=' w-[95%] md:w-[70%] h-[60%] flex-none overflow-scroll'>
+                    <div className=' w-[95%] md:w-[70%] h-[60%] flex-none overflow-auto'>
 
 
                         {
@@ -174,7 +174,7 @@ function Home({ projects }) {
 
                 </div>
                 {/* About me  */}
-                <div className='basis-1/2 overflow-scroll flex flex-col items-center mt-10 z-40'>
+                <div className='basis-1/2 overflow-auto flex flex-col items-center mt-10 z-40'>
                     <a className='text-4xl mt-10 sm:mt-0'>About Me</a>
                     <div>
                         <p className='m-5 sm:m-10 font-semibold text-center text ' >

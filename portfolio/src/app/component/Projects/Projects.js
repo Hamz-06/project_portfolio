@@ -71,11 +71,11 @@ function Project({ data }) {
                                 }} >
                                 Project Description
                             </h1>
-                            <p className='mt-2 overflow-scroll'>{data[0]?.description}</p>
+                            <p className='mt-2 overflow-auto'>{data[0]?.description}</p>
 
                         </div>
 
-                        <ul className=' h-44  mt-3 text-center sm:text-left overflow-scroll'>
+                        <ul className=' h-44  mt-3 text-center sm:text-left overflow-auto'>
                             <a className='text-lg font-bold underline underline-offset-2 '
                                 style={{
                                     textDecoration: `${data[0].secondary_color ?? process.env.NEXT_PUBLIC_SECONDARY}`,
