@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components';
 
 
-function Cloud({ leftSide }) {
+function Cloud({ leftSide, browserYaxis, browserCenter }) {
 
 
     const [StyledDiv, setStyledDiv] = useState(null)
@@ -16,14 +16,19 @@ function Cloud({ leftSide }) {
     var widthSize = 0
 
     useEffect(() => {
+
+
         if (window === undefined) return
         // maybe fix this later
-        var browserYaxis = window?.innerHeight - 100;
-        var browserCenter = window?.innerHeight / 2 + 100;
+        var browserYaxis = window?.innerHeight;
 
+        var browserXcenter = window?.innerWidth / 2
 
-        yAxis = Math.floor(Math.random() * (browserYaxis - browserCenter + 1)) + browserCenter;
-        xAxis = Math.floor(Math.random() * window?.innerWidth / 2 * leftSide);
+        var yAxisMin = Math.floor(browserYaxis * 0.6);
+        var yAxisMax = Math.floor(browserYaxis * 0.9);
+        yAxis = Math.floor(Math.random() * (yAxisMax - yAxisMin + 1)) + yAxisMin;
+
+        xAxis = Math.floor(Math.random() * browserXcenter) + (leftSide > 1 ? browserXcenter : 0);
         widthSize = Math.floor(Math.random() * (max - min + 1)) + min;
         const random = Math.floor(Math.random() * 3) - 1;
 
