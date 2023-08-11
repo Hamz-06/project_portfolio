@@ -3,9 +3,9 @@ import { cn } from '@/util/util'
 import React, { useState } from 'react'
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import face from './face.png'
+
 import jpmorgan from '../Element/jpmorgan.jpeg'
-import w3s from '../Element/w3s.png'
+import wthree from '../Element/wthree.png'
 import aws from '../Element/aws.jpeg'
 {/* <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xlink="http://www.w3.org/1999/xlink" svgjs="http://svgjs.dev/svgjs" width="100%" height="100%"><defs><filter id="nnnoise-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
 <feTurbulence type="fractalNoise" baseFrequency="0.102" numOctaves="4" seed="15" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
@@ -35,7 +35,7 @@ function Contact({ className, id }) {
             noisePrimaryColor: '#ff006d',
             backgroundColor: '#d5ff00ff',
             description: ["•Virtual internship with JP morgan - 2021", "•W3S javascript certificate  - 2022", "•Working towards AWS cloud practitioner certificate - 2023"],
-            certificateImage: [jpmorgan, w3s, aws]
+            certificateImage: [jpmorgan, wthree, aws]
         },
 
     ]
