@@ -2,10 +2,7 @@
 import React from 'react'
 
 import myPicture from './face.png'
-
-
 import { useEffect } from 'react'
-
 import Cloud from '../Element/cloud'
 import Image from 'next/image'
 import ProjectList from '../Element/ProjectList'
@@ -53,17 +50,13 @@ function Home({ projects }) {
         return cloud
     }
 
-    const copyText = () => {
-
-        navigator.clipboard.writeText('Hamzah1010@hotmail.co.uk');
-    }
 
     return (
 
         <main id='main_page' className='h-screen w-screen tall:snap-none tall:overflow-visible snap-mandatory overflow-auto overflow-x-hidden snap-y '>
 
             <a className='fixed top-0 z-50 m-2'>v2</a>
-            <section id='home' className='snap-start min h-screen min-h-[600px] bg-blue-400 inline-block   w-screen '>
+            <section id='home' className='snap-start min h-screen min-h-[600px] bg-blue-400 inline-block relative  w-screen '>
                 {/* cloud  */}
 
                 {generateCloud()}
@@ -120,10 +113,6 @@ function Home({ projects }) {
             <Contact id='contact' className='snap-start h-screen min-h-[600px] z-10 relative  flex flex-col w-screen' />
 
             {/* section three  */}
-
-
-
-
 
         </main >
 

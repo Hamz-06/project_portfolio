@@ -5,11 +5,6 @@ import Home from "./component/home/home";
 import { groq } from "next-sanity";
 
 
-
-
-
-
-
 const getProjects = async () => {
 
     const query = groq`*[_type == "project"]|order(project_order desc){
