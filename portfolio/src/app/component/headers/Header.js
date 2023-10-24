@@ -5,19 +5,11 @@ import { PlayIcon, PauseIcon } from '@heroicons/react/24/outline'
 import { PAGES, TIMER } from '@/data/Data'
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentPage } from '../../redux/currentpage_slice'
+import { setCurrentPage } from '../../../redux/currentpage_slice'
 
 function Header() {
 
-    const pageLength = PAGES.length
     const router = useRouter()
-    const [isPause, setPause] = useState(true)
-    // const [currentPage, setPage] = useState()
-    var currentPagePointerRef = useRef()
-
-
-
-
     useEffect(() => {
         var myHash = window.location.hash
         myHash = myHash.split('#')[1]
@@ -26,14 +18,6 @@ function Header() {
         hashElement?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, [])
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(entries => {
-    //         const entry = entries
-    //         console.log(entry[0].intersectionRect)
-    //     })
-    //     const contact = document.getElementById('contact')
-    //     observer.observe(contact)
-    // }, [])
 
     return (
         <header className='fixed w-52 h-10 sm:h-52 sm:w-10 flex flex-row sm:flex-col sm:right-0 

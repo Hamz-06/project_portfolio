@@ -2,7 +2,7 @@
 import '@/globals.css'
 import { Montserrat } from 'next/font/google'
 
-import Header from './component/Header'
+import Header from '../component/headers/Header'
 import Loading from './loading'
 import { Suspense } from 'react'
 
@@ -16,17 +16,19 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
+
   return (
     <html lang="en" className='scroll-smooth'>
 
       < body className={montserrat.className} >
-        <Header />
-
         <Suspense fallback={<Loading />}>
-          {children}
-        </Suspense>
+          <Header />
 
+          {children}
+
+        </Suspense>
       </ body>
 
     </html >

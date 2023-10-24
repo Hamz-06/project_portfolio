@@ -1,6 +1,6 @@
 import '@/globals.css'
 import { Montserrat } from 'next/font/google'
-import Loading from '../loading'
+import Loading from '@/app/(project)/project/loading'
 import { Suspense } from 'react'
 
 export const metadata = {
