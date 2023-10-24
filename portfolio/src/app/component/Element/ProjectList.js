@@ -24,6 +24,7 @@ function ProjectList({ data, index }) {
                     {imageUrl ? < Image
                         alt='main image'
                         src={imageUrl}
+                        className='object-cover'
                         fill='true'
                     /> : ''}
                 </div>
