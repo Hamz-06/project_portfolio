@@ -22,11 +22,8 @@ const getProjects = async () => {
 
 export default async function HomePage() {
 
-
     const projects = await getProjects()
     // console.log(projects)
-
-
 
     return (
         <main id='main_page' className='h-screen w-screen tall:snap-none tall:overflow-visible snap-mandatory overflow-auto overflow-x-hidden snap-y '>
@@ -43,7 +40,7 @@ export default async function HomePage() {
 
 
             {/* contact  */}
-            <Contact id='contact' className='snap-start tall:snap-none h-screen min-h-[600px] z-10 relative  flex flex-col w-screen' />
+            {/* <Contact id='contact' className='snap-start tall:snap-none h-screen min-h-[600px] z-10 relative  flex flex-col w-screen' /> */}
 
         </main >
     )

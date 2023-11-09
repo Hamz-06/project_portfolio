@@ -5,11 +5,11 @@ const PAGES = [
     }, {
         pagesHash: 'my-projects',
         pagesTitle: 'Projects',
-    }, {
-        pagesHash: 'contact',
-        pagesTitle: 'Contact',
-
     }
+    // , {
+    //     pagesHash: 'contact',
+    //     pagesTitle: 'Contact',
+
+    // }
 ]
-const TIMER = 5000
-export { PAGES, TIMER }
+export { PAGES }

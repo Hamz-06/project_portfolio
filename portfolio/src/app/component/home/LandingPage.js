@@ -1,37 +1,13 @@
 'use client'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Cloud from '../Element/cloud';
 import Image from 'next/image';
 import myPicture from './face.png'
+import { useTransition, animated } from '@react-spring/web'
 function LandingPage({ className }) {
 
-    useEffect(() => {
-        const intersectionAtTopOrBottomElement = document.getElementById('contact');
-
-        const elementHasIntersected = (entries, o) => {
-            const isContact = entries[0].isIntersecting
-        }
-        const ioConfiguration = {
-            /**
-             * This rootMargin creates a horizontal line vertically centered
-             * that will help trigger an intersection at that the very point.
-             */
-            rootMargin: '-50% 0% -50% 0%',
-
-            /**
-             * This is the default so you could remove it.
-             * I just wanted to leave it here to make it more explicit
-             * as this threshold is the only one that works with the above
-             * rootMargin
-             */
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver(elementHasIntersected, ioConfiguration);
-        observer.observe(intersectionAtTopOrBottomElement);
-    }, [])
-
     const generateCloud = useCallback(() => {
+
 
         const cloud = []
         for (let i = 0; i < 10; i++) {
@@ -41,6 +17,52 @@ function LandingPage({ className }) {
         }
         return cloud
     }, [])
+
+
+    const MyTitle = () => {
+        const ref = useRef([])
+        const [items, set] = useState([])
+        const transitions = useTransition(items, {
+            from: {
+                opacity: 0,
+
+                transform: 'perspective(1px) rotateX(0deg)',
+                color: '#28d79f',
+            },
+            enter: [
+                { opacity: 1 },
+                { transform: 'perspective(600px) rotateX(180deg)', color: '#c23369' },
+                { transform: 'perspective(600px) rotateX(0deg)' },
+                { outline: 'black' }
+            ],
+
+        })
+
+        const reset = useCallback(() => {
+            ref.current.forEach(clearTimeout)
+            ref.current = []
+            set([])
+            ref.current.push(setTimeout(() => set(['Full Stack Dev']), 0))
+            ref.current = []
+            ref.current.push(setTimeout(() => set(['Mohammad hamzah Iqbal']), 5000))
+        }, [])
+
+        useEffect(() => {
+            reset()
+            return () => ref.current.forEach(clearTimeout)
+        }, [])
+
+        return (
+            <React.Fragment>
+                {transitions(({ innerHeight, ...rest }, item) => (
+                    <animated.div style={rest} className='text-center text-4xl md:text-6xl font-extrabold z-20 mr-0 mb-5 sm:mb-0 sm:mr-5'>
+                        <span className='hover:cursor-pointer' onClick={reset}>{item}</span>
+                    </animated.div>
+                ))}
+            </React.Fragment>
+        )
+    }
+
 
     return (
 
@@ -56,8 +78,11 @@ function LandingPage({ className }) {
             </div>
             <a className='bottom-0 absolute right-1/2 translate-x-1/2 mb-2 text-center'>Next js Web Dev - My Portfolio</a>
             {/* name */}
-            <div className='flex flex-col md:flex-row justify-center h-full items-center mx-5 md:mx-40 flex-none z-10 relative'>
-                <a className='text-4xl md:text-6xl font-extrabold text-black text-center z-20 mr-0 mb-5 sm:mb-0 sm:mr-5'>Mohammad <br />Hamzah Iqbal</a>
+            <div className='flex flex-col md:flex-row justify-center items-center h-full mx-5 md:mx-40 flex-none z-10 relative'>
+                <div className='w-96'>
+                    <MyTitle />
+                </div>
+
                 <div className='w-[250px] h-[250px] relative flex-none'>
                     <Image
                         alt='profile picture'

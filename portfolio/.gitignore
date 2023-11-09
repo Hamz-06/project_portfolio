@@ -12,6 +12,7 @@
 /.next/
 /out/
 
+
 # production
 /build
 
@@ -33,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.env
+.env.development
+.env.production
+
