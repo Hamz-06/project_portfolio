@@ -1,2 +1,2 @@
-# project_port
-# project_portfolio
+# My project portfolio built using next js and sanity 
+
