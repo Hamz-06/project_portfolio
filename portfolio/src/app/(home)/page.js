@@ -26,11 +26,11 @@ export default async function HomePage() {
     // console.log(projects)
 
     return (
-        <main id='main_page' className='h-screen w-screen tall:snap-none tall:overflow-visible snap-mandatory overflow-auto overflow-x-hidden snap-y '>
+        <main id='main_page' className='h-screen w-screen tall:snap-none tall:overflow-visible overflow-auto overflow-x-hidden '>
 
-            <a className='fixed top-0 z-50 m-2'>V2</a>
+            <a className='fixed top-0 z-50 m-2 '>V2.1</a>
             <section id='home' className='snap-start  tall:snap-none min h-screen min-h-[600px] bg-blue-400 inline-block relative w-screen '>
-                <LandingPage className={'relative w-full h-full'} />
+                <LandingPage className='relative w-full h-full' />
             </section>
             {/* section two  */}
 

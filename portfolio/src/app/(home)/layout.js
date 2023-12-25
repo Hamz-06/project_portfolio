@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
 
 
   return (
-    <html lang="en" className='scroll-smooth'>
+    <html lang="en" className=''>
 
       < body className={montserrat.className} >
         <Suspense fallback={<Loading />}>
